@@ -10,8 +10,14 @@
   align-items: center;
   border-radius: 25px;
   font-weight: bold;
+  width: 50%;
 }
 
+@media (min-width: 768px) {
+  .button {
+    width: auto;
+  }
+}
 .button:hover,
 .button:active {
   background-color: #0b3769;
