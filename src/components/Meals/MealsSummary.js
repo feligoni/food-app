@@ -3,7 +3,7 @@ import classes from "./MealsSummary.module.css";
 const MealsSummary = () => {
   return (
     <section className={classes.summary}>
-      <h2>Delicious Food, Delivered To You</h2>
+      <h2>Scented custom candles delivered to you!</h2>
       <p>
         GarzaCandles signature candle range include 4 sizes across all our our
         unique fragrances. Each candle sees pure soy wax infused with expertly
