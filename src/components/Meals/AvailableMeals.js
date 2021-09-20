@@ -7,26 +7,26 @@ import Card from "../UI/Card";
 const DUMMY_MEALS = [
   {
     id: "m1",
-    name: "Sushi",
-    description: "Finest fish and veggies",
+    name: "Teahupoo Candle",
+    description: "Unique scent created by us!",
     price: 22.99,
   },
   {
     id: "m2",
-    name: "Schnitzel",
-    description: "A german specialty!",
+    name: "Garza Candle",
+    description: "Unique scent created by us!",
     price: 16.5,
   },
   {
     id: "m3",
-    name: "Barbecue Burger",
-    description: "American, raw, meaty",
+    name: "Mia's Candle",
+    description: "Unique scent created by us!",
     price: 12.99,
   },
   {
     id: "m4",
-    name: "Green Bowl",
-    description: "Healthy...and green...",
+    name: "Manly Candle",
+    description: "Unique scent created by us!",
     price: 18.99,
   },
 ];
