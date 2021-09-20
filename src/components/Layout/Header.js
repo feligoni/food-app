@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Header.module.css";
-import mealsImage from "../../assets/meals.jpg";
+import mealsImage from "../../assets/meals.png";
 import HeaderCartButton from "./HeaderCartButton";
 
 const Header = (props) => {
@@ -11,7 +11,7 @@ const Header = (props) => {
         <HeaderCartButton onClick={props.onShowCart} />
       </header>
       <div className={classes["main-image"]}>
-        <img src={mealsImage} alt="A table full of delicious food!" />
+        <img src={mealsImage} alt="A table with candles" />
       </div>
     </React.Fragment>
   );
