@@ -1,44 +1,71 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import Card from "../UI/Card";
+import MealItem from "./MealItem/MealItem";
 import classes from "./AvailableMeals.module.css";
 
-import MealItem from "./MealItem/MealItem";
-import Card from "../UI/Card";
-
-const DUMMY_MEALS = [
-  {
-    id: "m1",
-    name: "Teahupoo Candle",
-    description: "Unique scent created by us!",
-    price: 22.99,
-  },
-  {
-    id: "m2",
-    name: "Garza Candle",
-    description: "Unique scent created by us!",
-    price: 16.5,
-  },
-  {
-    id: "m3",
-    name: "Mia's Candle",
-    description: "Unique scent created by us!",
-    price: 12.99,
-  },
-  {
-    id: "m4",
-    name: "Manly Candle",
-    description: "Unique scent created by us!",
-    price: 18.99,
-  },
-];
-
 const AvailableMeals = () => {
-  const mealsList = DUMMY_MEALS.map((meals) => (
+  const [meals, setMeals] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [httpError, setHttpError] = useState();
+
+  useEffect(() => {
+    const fetchMeals = async () => {
+      setIsLoading(true);
+      const response = await fetch(
+        "https://reacthttp-21417-default-rtdb.firebaseio.com/meals.json"
+      );
+
+      if (!response.ok) {
+        throw new Error("Something went wrong!");
+      }
+      const data = await response.json();
+      const loadedFoods = [];
+
+      for (const key in data) {
+        loadedFoods.push({
+          id: key,
+          name: data[key].name,
+          description: data[key].description,
+          price: data[key].price,
+        });
+      }
+      setMeals(loadedFoods);
+      setIsLoading(false);
+    };
+
+    fetchMeals().catch((error) => {
+      setIsLoading(false);
+      setHttpError(error.message);
+    });
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section className={classes.meals}>
+        <Card>
+          <h1>Loading...</h1>
+        </Card>
+      </section>
+    );
+  }
+
+  if (httpError) {
+    return (
+      <section className={classes.meals}>
+        <Card>
+          <h1>{httpError}</h1>
+        </Card>
+      </section>
+    );
+  }
+
+  const mealsList = meals.map((meal) => (
     <MealItem
-      id={meals.id}
-      key={meals.id}
-      name={meals.name}
-      description={meals.description}
-      price={meals.price}
+      key={meal.id}
+      id={meal.id}
+      name={meal.name}
+      description={meal.description}
+      price={meal.price}
     />
   ));
 

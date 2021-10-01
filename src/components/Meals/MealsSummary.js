@@ -1,21 +1,19 @@
-import classes from "./MealsSummary.module.css";
+import classes from './MealsSummary.module.css';
 
 const MealsSummary = () => {
   return (
     <section className={classes.summary}>
-      <h2>Scented custom candles delivered to you!</h2>
+      <h2>Delicious Food, Delivered To You</h2>
       <p>
-        GarzaCandles signature candle range include 4 sizes across all our our
-        unique fragrances. Each candle sees pure soy wax infused with expertly
-        blended fragrance oils and carefully poured into a thick white glass
-        vessel with cotton wicks to deliver alluring home fragrance.
+        Choose your favorite meal from our broad selection of available meals
+        and enjoy a delicious lunch or dinner at home.
       </p>
       <p>
-        Each candle is meticulously handmade in Sydney, Australia with natural
-        ingredients. Our candles are finished with a sleek black wooden lid and
-        packaged in either a beautifully designed luxury box.
+        All our meals are cooked with high-quality ingredients, just-in-time and
+        of course by experienced chefs!
       </p>
     </section>
   );
 };
+
 export default MealsSummary;
